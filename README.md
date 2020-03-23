@@ -2,7 +2,7 @@
 
 > Fractals is a Rust project to generate fractals.
 
-Fractals is a project designed to generate fractals as images without any external dependencies. Currently under development. 
+Fractals is a project designed to generate fractals as images without any external dependencies. Checkout the [log](https://github.com/iberatkaya/fractals/blob/master/LOG.md). Currently under development. 
 
 ## Author
 

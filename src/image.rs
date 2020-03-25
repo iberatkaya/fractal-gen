@@ -21,10 +21,10 @@ impl Img {
     }
     pub fn get_binary_data(&self) -> Vec<u8>{
         let mut data = self.header.get_binary_data();
-        for pixel in self.pixels.iter() {
-            data.push(pixel.r);
-            data.push(pixel.g);
+        for pixel in self.pixels.iter().rev() {
             data.push(pixel.b);
+            data.push(pixel.g);
+            data.push(pixel.r);
         }
         for _i in 0..(4 - (self.pixels.len() % 4)){
             data.push(0);

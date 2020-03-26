@@ -3,19 +3,25 @@ mod image;
 fn main() {
     let mut pixels = vec![];
     for _i in 0..30 {
+        let mut row = vec![];
         for j in 0..=255 {
-            pixels.push(image::pixel::Pixel::new(j, 0, 0));
+            row.push(image::pixel::Pixel::new(j, j, 0));
         }
+        pixels.push(row);
     }
     for _i in 0..30 {
+        let mut row = vec![];
         for j in 0..=255 {
-            pixels.push(image::pixel::Pixel::new(0, j, 0));
+            row.push(image::pixel::Pixel::new(j, j, j));
         }
+        pixels.push(row);
     }
     for _i in 0..30 {
+        let mut row = vec![];
         for j in 0..=255 {
-            pixels.push(image::pixel::Pixel::new(0, 0, j));
+            row.push(image::pixel::Pixel::new(0, 0, j));
         }
+        pixels.push(row);
     }
-    image::write_image("./test.bmp", 256, 90, pixels);
+    image::write_image("./test.bmp", pixels);
 }

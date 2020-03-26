@@ -2,9 +2,15 @@
 
 ## Below is a log of my experience with developing this project. 
 
+### 26.10.2020:
+
+* Fixed several bugs while creating a bmp image.
+* This was by far the most detailed and helpful tutorial to create a bmp image: [BMP File Format](http://www.di.unito.it/~marcog/SM/BMPformat-Wiki.pdf)
+* While debugging, I learnt to read a bmp image by looking at the bytes, which is an interesting skill.
+
 ### 24.10.2020:
 
-* Learnt about structs in methods Rust.
+* Learnt about structs and methods in Rust.
 * Created structs for the project.
 * Successfully generated an bmp image using the structs with width 255 and height 90.
 * Used a function from the Rust Forum implemented by [nateozem](https://users.rust-lang.org/t/how-to-serialize-a-u32-into-byte-array/986/5) to convert a u64 to a u8 array.

@@ -4,7 +4,7 @@ pub mod header;
 use header::Header;
 use pixel::Pixel;
 mod utils;
-use utils::transform_u32_to_array_of_u8;
+use utils::{transform_u32_to_array_of_u8};
 
 pub struct Img {
     header: Header,
@@ -26,15 +26,20 @@ impl Img {
                 data.push(pixel.g);
                 data.push(pixel.r);
             }
+            for _i in 0..(4 - (self.pixels[0].len() as u32 * 3) % 4){
+                if (self.pixels[0].len() as u32 * 3) % 4 == 0 {
+                    break;
+                }
+                data.push(0);
+            }
         }
-        for _i in 0..(4 - (self.pixels.len() % 4)){
-            data.push(0);
-            data.push(0);
-            data.push(0);
-        }
-        let size = transform_u32_to_array_of_u8(data.len() as u32);
+        let mut size = transform_u32_to_array_of_u8(data.len() as u32);
         for i in 0..4 {
             data[i+2] = size[i];
+        }
+        size = transform_u32_to_array_of_u8(self.pixels.len() as u32 * ((self.pixels[0].len() as u32 * 3 + 7) & !7) as u32 / 16);
+        for i in 0..4 {
+            data[i+34] = size[i];
         }
         data
     }

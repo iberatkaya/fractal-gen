@@ -7,8 +7,8 @@ pub struct Header {
     res2: u8,
     pixel_data_offset: u8,
     header_size: u8,
-    image_width: u32,
-    image_height: u32,
+    pub image_width: u32,
+    pub image_height: u32,
     planes: u8,
     bits_per_pixel: u8,
     compression: u8,
@@ -103,7 +103,7 @@ impl Header {
                 bdata.push(0);  
             }  
         }
-        //ImageSize
+        //ImageSize (Can be 0 if compression is 0)
         let image_size = transform_u32_to_array_of_u8(self.image_size);
         for i in 0..4 {
             bdata.push(image_size[i]);

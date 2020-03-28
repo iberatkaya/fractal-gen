@@ -1,4 +1,4 @@
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Pixel {
     pub r: u8,
     pub g: u8,

@@ -6,13 +6,16 @@ use pixel::Pixel;
 mod utils;
 use utils::{transform_u32_to_array_of_u8};
 
+#[derive(Clone)]
 pub struct Img {
     header: Header,
     pub pixels: Vec<Vec<Pixel>>    
 }
 
 impl Img {
-    pub fn new(width: u32, height: u32, pixels: Vec<Vec<Pixel>>) -> Img {
+    pub fn new(pixels: Vec<Vec<Pixel>>) -> Img {
+        let height = pixels.len() as u32;
+        let width = pixels[0].len() as u32;
         let header = Header::new(width, height, width * height);
         Img {
             header: header, pixels: pixels
@@ -43,22 +46,23 @@ impl Img {
         }
         data
     }
+
+    pub fn write_image(&self, path: &str){
+        if !path.contains(".bmp") {
+            panic!("I am not a bmp image!");
+        }
+        let width = self.pixels[0].len();
+        for row in self.pixels.iter(){
+            if row.len() != width {
+                panic!("The pixel array does not have equal row sizes!")
+            }   
+        }
+        let mut data = std::fs::File::create(path).unwrap();
+        let img = Img::new(self.pixels.clone());
+        let bdata = img.get_binary_data();
+        data.write(&bdata).unwrap();
+    }
 }
 
 
-pub fn write_image(path: &str, pixels: Vec<Vec<Pixel>>){
-    if !path.contains(".bmp") {
-        panic!("I am not a bmp image!");
-    }
-    let height = pixels.len();
-    let width = pixels[0].len();
-    for row in pixels.iter(){
-        if row.len() != width {
-            panic!("The pixel array does not have equal row sizes!")
-        }   
-    }
-    let mut data = std::fs::File::create(path).unwrap();
-    let img = Img::new(width as u32, height as u32, pixels);
-    let bdata = img.get_binary_data();
-    data.write(&bdata).unwrap();
-}
+

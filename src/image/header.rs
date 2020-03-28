@@ -1,5 +1,6 @@
 use super::utils::*;
 
+#[derive(Clone)]
 pub struct Header {
     file_type: String,
     file_size: u32,

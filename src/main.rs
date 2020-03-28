@@ -1,27 +1,17 @@
 mod image;
+use image::pixel::Pixel;
+mod fractals;
 
 fn main() {
     let mut pixels = vec![];
-    for _i in 0..30 {
+     for _i in 0..250 {
         let mut row = vec![];
-        for j in 0..=255 {
-            row.push(image::pixel::Pixel::new(j, j, 0));
+        for _j in 0..250 {
+            row.push(Pixel::new(255, 0, 0));
         }
         pixels.push(row);
     }
-    for _i in 0..30 {
-        let mut row = vec![];
-        for j in 0..=255 {
-            row.push(image::pixel::Pixel::new(j, j, j));
-        }
-        pixels.push(row);
-    }
-    for _i in 0..30 {
-        let mut row = vec![];
-        for j in 0..=255 {
-            row.push(image::pixel::Pixel::new(0, 0, j));
-        }
-        pixels.push(row);
-    }
-    image::write_image("./test.bmp", pixels);
+    let mut image = fractals::Fractal::new(pixels);
+    image.draw_multiple_circles(120, 10);
+    image.write_image("./test.bmp");
 }

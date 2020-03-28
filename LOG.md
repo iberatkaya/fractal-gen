@@ -2,6 +2,11 @@
 
 ## Below is a log of my experience with developing this project. 
 
+### 28.10.2020:
+
+* Implemented Bresenham's circle drawing algorithm.
+* Drew a circle and periodic circles on a bmp image.
+
 ### 26.10.2020:
 
 * Fixed several bugs while creating a bmp image.

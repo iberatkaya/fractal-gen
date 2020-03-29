@@ -1,10 +1,13 @@
 use std::io::Write;
-use crate::image::{Img, pixel::{Pixel}};
+use crate::image::{Img, pixel::Pixel};
 mod circle;
 use circle::{circle, multiple_circles};
+mod line;
+mod koch_curve;
+use koch_curve::{draw_koch_curve};
 
 pub struct Fractal {
-    image: Img
+    pub image: Img
 }
 
 
@@ -30,10 +33,13 @@ impl Fractal {
         let bdata = img.get_binary_data();
         data.write(&bdata).unwrap();
     }
-    pub fn draw_circle(&mut self, radius: u32){
-        self.image = circle(radius, self.image.clone());
+    pub fn draw_circle(&mut self, radius: u32, color: Pixel){
+        circle(radius, &mut self.image, color);
     }
-    pub fn draw_multiple_circles(&mut self, radius: u32, frequency: u32){
-        self.image = multiple_circles(radius, frequency, self.image.clone());
+    pub fn draw_multiple_circles(&mut self, radius: u32, frequency: u32, color: Pixel){
+        multiple_circles(radius, frequency, &mut self.image, color);
+    }
+    pub fn snowflake(&mut self, p1x: i32, p1y: i32, p2x: i32, p2y: i32, amount: u32, color: Pixel){
+        draw_koch_curve(p1x, p1y, p2x, p2y, amount as i32, &mut self.image.pixels, color);
     }
 }

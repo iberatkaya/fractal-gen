@@ -6,7 +6,6 @@ use pixel::Pixel;
 mod utils;
 use utils::{transform_u32_to_array_of_u8};
 
-#[derive(Clone)]
 pub struct Img {
     header: Header,
     pub pixels: Vec<Vec<Pixel>>    

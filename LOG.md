@@ -5,17 +5,17 @@
 ### 29.10.2020:
 
 * Implemented [DDA](https://en.wikipedia.org/wiki/Digital_differential_analyzer_(graphics_algorithm)) for drawing a line. 
-* Implemented Koch Curve for generating starflake like patterns. Example codes in C: [Rosetta](https://rosettacode.org/wiki/Koch_curve#C), [computergraphicsinc](http://computergraphicsinc.blogspot.com/2014/12/c-program-to-draw-koch-curve-using.html)
+* Implemented Koch Curve for generating starflake like patterns. Example codes in C: [Rosetta](https://rosettacode.org/wiki/Koch_curve#C), [computergraphicsinc](http://computergraphicsinc.blogspot.com/2014/12/c-program-to-draw-koch-curve-using.html).
 
 ### 28.10.2020:
 
-* Implemented Bresenham's circle drawing algorithm.
+* Implemented [Bresenham's circle drawing algorithm](https://www.geeksforgeeks.org/bresenhams-circle-drawing-algorithm/).
 * Drew a circle and periodic circles on a bmp image.
 
 ### 26.10.2020:
 
 * Fixed several bugs while creating a bmp image.
-* This was by far the most detailed and helpful tutorial to create a bmp image: [BMP File Format](http://www.di.unito.it/~marcog/SM/BMPformat-Wiki.pdf)
+* This was by far the most detailed and helpful tutorial to create a bmp image: [BMP File Format](http://www.di.unito.it/~marcog/SM/BMPformat-Wiki.pdf).
 * While debugging, I learnt to read a bmp image by looking at the bytes, which is an interesting skill.
 
 ### 24.10.2020:

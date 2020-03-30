@@ -51,7 +51,7 @@ impl Fractal {
         trianglev2(x, y, h, &mut self.image.pixels, color);
     }
     pub fn multiple_triangles(&mut self, x: u32, y: u32, h: u32, color: Pixel){
-        trianglev2(x / 2, 2 * y / 3, h * 2 / 3, &mut self.image.pixels, color);
-        sierpinski_triangle(x as f64 / 2.0, 2.0 * y as f64 / 3.0, h as f64 / 3.0, &mut self.image.pixels, color);
+        trianglev2(x, y, h * 2, &mut self.image.pixels, color);
+        sierpinski_triangle(x as f64, y as f64, h as f64, &mut self.image.pixels, color);
     }
 }

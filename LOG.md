@@ -2,6 +2,9 @@
 
 ## Below is a log of my experience with developing this project. 
 
+## 30.10.2020: 
+* Implemented [Sierpinski's Triangle](https://www.geeksforgeeks.org/sierpinski-triangle-using-graphics/). 
+
 ### 29.10.2020:
 
 * Implemented [DDA](https://en.wikipedia.org/wiki/Digital_differential_analyzer_(graphics_algorithm)) for drawing a line. 

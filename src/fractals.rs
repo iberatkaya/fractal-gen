@@ -4,7 +4,9 @@ mod circle;
 use circle::{circle, multiple_circles};
 mod line;
 mod koch_curve;
-use koch_curve::{draw_koch_curve};
+use koch_curve::{koch_curve};
+mod sierpinski_triangle;
+use sierpinski_triangle::{triangle, trianglev2, sierpinski_triangle};
 
 pub struct Fractal {
     pub image: Img
@@ -33,13 +35,23 @@ impl Fractal {
         let bdata = img.get_binary_data();
         data.write(&bdata).unwrap();
     }
-    pub fn draw_circle(&mut self, radius: u32, color: Pixel){
+    pub fn circle(&mut self, radius: u32, color: Pixel){
         circle(radius, &mut self.image, color);
     }
-    pub fn draw_multiple_circles(&mut self, radius: u32, frequency: u32, color: Pixel){
+    pub fn multiple_circles(&mut self, radius: u32, frequency: u32, color: Pixel){
         multiple_circles(radius, frequency, &mut self.image, color);
     }
     pub fn snowflake(&mut self, p1x: i32, p1y: i32, p2x: i32, p2y: i32, amount: u32, color: Pixel){
-        draw_koch_curve(p1x, p1y, p2x, p2y, amount as i32, &mut self.image.pixels, color);
+        koch_curve(p1x, p1y, p2x, p2y, amount as i32, &mut self.image.pixels, color);
+    }
+    pub fn triangle(&mut self, x: u32, y: u32, h: u32, color: Pixel){
+        triangle(x, y, h, &mut self.image.pixels, color);
+    }
+    pub fn trianglev2(&mut self, x: u32, y: u32, h: u32, color: Pixel){
+        trianglev2(x, y, h, &mut self.image.pixels, color);
+    }
+    pub fn multiple_triangles(&mut self, x: u32, y: u32, h: u32, color: Pixel){
+        trianglev2(x / 2, 2 * y / 3, h * 2 / 3, &mut self.image.pixels, color);
+        sierpinski_triangle(x as f64 / 2.0, 2.0 * y as f64 / 3.0, h as f64 / 3.0, &mut self.image.pixels, color);
     }
 }

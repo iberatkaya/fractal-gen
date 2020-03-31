@@ -5,27 +5,26 @@ use crate::image::{Img, pixel::{Pixel}};
  *  For more details: https://www.geeksforgeeks.org/bresenhams-circle-drawing-algorithm/
  */
 
-pub(super) fn circle(radius: u32, image: &mut Img, color: Pixel){
+pub(super) fn circle(xc: usize, yc: usize, radius: u32, image: &mut Img, color: Pixel){
     if radius > image.pixels.len() as u32 / 2 || radius > image.pixels[0].len() as u32 / 2 {
         panic!("Radius cannot be greater than half of width or heigth!")
     }
-    bresenhams_circle(radius, &mut image.pixels, color);
+    bresenhams_circle(xc, yc, radius, &mut image.pixels, color);
 }
 
-pub(super) fn multiple_circles(radius: u32, frequency: u32, image: &mut Img, color: Pixel) {
+pub(super) fn multiple_circles(xc: usize, yc: usize, radius: u32, number: u32, image: &mut Img, color: Pixel) {
     if radius > image.pixels.len() as u32 / 2 || radius > image.pixels[0].len() as u32 / 2 {
         panic!("Radius cannot be greater than half of width or heigth!")
     }
-    let mut i = 1;
-    while i < radius {
-        bresenhams_circle(i, &mut image.pixels, color);
-        i += frequency;
+    let mut i = radius;
+    let div = radius / number;
+    while i > 0 {
+        bresenhams_circle(xc, yc, i, &mut image.pixels, color);
+        i -= div;
     }
 }
 
-fn bresenhams_circle(radius: u32, pixels: &mut Vec<Vec<Pixel>>, color: Pixel){
-    let xc = pixels.len() / 2;
-    let yc = pixels[0].len() / 2;
+fn bresenhams_circle(xc: usize, yc: usize, radius: u32, pixels: &mut Vec<Vec<Pixel>>, color: Pixel){
     let mut x = 0;
     let mut y = radius as usize;
     let mut d: i32 = 3 - 2 * radius as i32;

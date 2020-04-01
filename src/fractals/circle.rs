@@ -16,11 +16,11 @@ pub(super) fn multiple_circles(xc: usize, yc: usize, radius: u32, number: u32, i
     if radius > image.pixels.len() as u32 / 2 || radius > image.pixels[0].len() as u32 / 2 {
         panic!("Radius cannot be greater than half of width or heigth!")
     }
-    let mut i = radius;
+    let mut i = radius as i32;
     let div = radius / number;
     while i > 0 {
-        bresenhams_circle(xc, yc, i, &mut image.pixels, color);
-        i -= div;
+        bresenhams_circle(xc, yc, i as u32, &mut image.pixels, color);
+        i -= div as i32;
     }
 }
 

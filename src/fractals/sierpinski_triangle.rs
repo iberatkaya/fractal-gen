@@ -8,13 +8,13 @@ pub fn triangle(x: u32, y: u32, h: u32, pixels: &mut Vec<Vec<Pixel>>, color: Pix
 } 
 
 pub fn multiple_triangles(x: u32, y: u32, h: u32, number: u32, pixels: &mut Vec<Vec<Pixel>>, color: Pixel){
-    let mut i = h;
+    let mut i = h as i32;
     let div = h / number;
     while i > 0 {
-        draw_line((x as f64 - (i as f64 / 3.0_f64.sqrt())) as u32, (y - i / 3) as u32, (x as f64 + (i as f64 / 3.0_f64.sqrt())) as u32, (y - i / 3) as u32, pixels, color); 
-        draw_line((x as f64 - (i as f64 / 3.0_f64.sqrt())) as u32, (y - i / 3) as u32, x as u32, (y + 2 * i / 3) as u32, pixels, color); 
-        draw_line(x as u32, (y + 2 * i / 3) as u32, (x as f64 + (i as f64 / 3.0_f64.sqrt())) as u32, (y - i / 3) as u32, pixels, color); 
-        i -= div;
+        draw_line((x as f64 - (i as u32 as f64 / 3.0_f64.sqrt())) as u32, (y - i as u32 / 3) as u32, (x as f64 + (i as u32 as f64 / 3.0_f64.sqrt())) as u32, (y - i as u32 / 3) as u32, pixels, color); 
+        draw_line((x as f64 - (i as u32 as f64 / 3.0_f64.sqrt())) as u32, (y - i as u32 / 3) as u32, x as u32, (y + 2 * i as u32 / 3) as u32, pixels, color); 
+        draw_line(x as u32, (y + 2 * i as u32 / 3) as u32, (x as f64 + (i as u32 as f64 / 3.0_f64.sqrt())) as u32, (y - i as u32 / 3) as u32, pixels, color); 
+        i -= div as i32;
     }
 }
 

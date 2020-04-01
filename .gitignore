@@ -3,3 +3,4 @@
 *.bmp
 *.jpg
 !examples/*/*.jpg
+src/main.rs

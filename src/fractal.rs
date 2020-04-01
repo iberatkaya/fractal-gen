@@ -18,12 +18,19 @@ pub struct Fractal {
 
 
 impl Fractal {
+
+
+    ///Create a Fractal by giving the pixels.
     pub fn new(pixels: Vec<Vec<Pixel>>) -> Fractal {
         let image = Img::new(pixels);
         Fractal {
             image: image
         }
     }
+
+
+
+    ///Write the image as a bmp file in the given path.
     pub fn write_image(&self, path: &str){
         if !path.contains(".bmp") {
             panic!("I am not a bmp image!");
@@ -39,35 +46,68 @@ impl Fractal {
         let bdata = img.get_binary_data();
         data.write(&bdata).unwrap();
     }
+
+
+    ///Generate a circle by giving the center coordinates, the radius, and the color.
     pub fn circle(&mut self, xc: usize, yc: usize, radius: u32, color: Pixel){
         circle(xc, yc, radius, &mut self.image, color);
     }
+    
+
+    ///Generate repeating circle patterns where each circle's radius is decremented by number.
     pub fn multiple_circles(&mut self, xc: usize, yc: usize, radius: u32, number: u32, color: Pixel){
         multiple_circles(xc, yc, radius, number, &mut self.image, color);
     }
+
+
+    ///Generate a Koch Curve by giving the start and end coordinates, the color, and the amount of recursion.
+    ///Keep in mind that the time to run increases significantly as amount increases.
     pub fn koch_curve(&mut self, p1x: i32, p1y: i32, p2x: i32, p2y: i32, amount: u32, color: Pixel){
         koch_curve(p1x, p1y, p2x, p2y, amount as i32, &mut self.image.pixels, color);
     }
+
+
+    ///Generate a triange by giving its coordinates, height and color.
     pub fn triangle(&mut self, x: u32, y: u32, h: u32, color: Pixel){
         triangle(x, y, h, &mut self.image.pixels, color);
     }
+
+
+    ///Generate a triange by giving its coordinates, height and color.
     pub fn trianglev2(&mut self, x: u32, y: u32, h: u32, color: Pixel){
         trianglev2(x, y, h, &mut self.image.pixels, color);
     }
+
+
+    ///Generate a Sierpinksi Triange by giving its coordinates, height, and color.
     pub fn sierpinski_triangle(&mut self, x: u32, y: u32, h: u32, color: Pixel){
         trianglev2(x, y, h * 2, &mut self.image.pixels, color);
         sierpinski_triangle(x as f64, y as f64, h as f64, &mut self.image.pixels, color);
     }
+
+
+    ///Generate repeating triangles where each triangles height is decremented by number.
     pub fn multiple_triangles(&mut self, x: u32, y: u32, h: u32, number: u32, color: Pixel){
         multiple_triangles(x, y, h, number, &mut self.image.pixels, color);
     }
+
+    
+    ///Generate a Mandelbrot Set with the given color.
     pub fn mandelbrot(&mut self, color: Pixel){
         mandelbrot(&mut self.image.pixels, color);
     }
+
+
+    ///Rotate the fractal by 90 degrees.
     pub fn rotate(&mut self){
         self.image.rotate();
     }
+
+
+    ///Generate a tree by giving its coordinates, height, angle, growth, and color.
     pub fn tree(&mut self, x: u32, y: u32, h: u32, angle: f64, growth: u32, color: Pixel){
         tree(x, y, h, angle, growth, &mut self.image.pixels, color);
     }
+
+
 }

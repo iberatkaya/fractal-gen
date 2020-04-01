@@ -14,6 +14,9 @@ pub struct Img {
 }
 
 impl Img {
+
+    
+    ///Create a BMP image.
     pub fn new(pixels: Vec<Vec<Pixel>>) -> Img {
         let height = pixels.len() as u32;
         let width = pixels[0].len() as u32;
@@ -22,6 +25,9 @@ impl Img {
             header: header, pixels: pixels
         }
     }
+
+
+    ///Get the image's binary data.
     pub fn get_binary_data(&self) -> Vec<u8>{
         let mut data = self.header.get_binary_data();
         for i in (0..self.pixels.len()).rev(){
@@ -47,6 +53,9 @@ impl Img {
         }
         data
     }
+
+
+    ///Write the image into a file.
     pub fn write_image(&self, path: &str){
         if !path.contains(".bmp") {
             panic!("I am not a bmp image!");
@@ -62,6 +71,9 @@ impl Img {
         let bdata = img.get_binary_data();
         data.write(&bdata).unwrap();
     }
+
+
+    ///Rotate the image by 90 degrees.
     pub fn rotate(&mut self){
         self.pixels = rotate(&mut self.pixels);
     }

@@ -1,22 +1,27 @@
 use std::io::Write;
+/// Create an RGB Pixel,
 pub mod pixel;
+/// View the header data of the image!
 pub mod header;
 use header::Header;
 use pixel::Pixel;
+/// Use the utility functions.
 pub mod utils;
 use utils::*;
 mod rotate;
 use rotate::rotate;
 
+/// Structure of the Image.
 pub struct Img {
     header: Header,
+    /// The pixels of the image as a 2D Vector.
     pub pixels: Vec<Vec<Pixel>>    
 }
 
 impl Img {
 
     
-    ///Create a BMP image.
+    /// Create a BMP image.
     pub fn new(pixels: Vec<Vec<Pixel>>) -> Img {
         let height = pixels.len() as u32;
         let width = pixels[0].len() as u32;
@@ -27,7 +32,7 @@ impl Img {
     }
 
 
-    ///Get the image's binary data.
+    /// Get the image's binary data.
     pub fn get_binary_data(&self) -> Vec<u8>{
         let mut data = self.header.get_binary_data();
         for i in (0..self.pixels.len()).rev(){
@@ -55,7 +60,7 @@ impl Img {
     }
 
 
-    ///Write the image into a file.
+    /// Write the image into a file.
     pub fn write_image(&self, path: &str){
         if !path.contains(".bmp") {
             panic!("I am not a bmp image!");
@@ -73,7 +78,7 @@ impl Img {
     }
 
 
-    ///Rotate the image by 90 degrees.
+    /// Rotate the image by 90 degrees.
     pub fn rotate(&mut self){
         self.pixels = rotate(&mut self.pixels);
     }

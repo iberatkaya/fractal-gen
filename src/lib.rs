@@ -1,4 +1,4 @@
-//! Fractal Gen is a Rust project to generate fractals.
+//! Fractal Gen is a Rust project to generate fractals and save them as BMP images.
 //! 
 //! # Examples
 //! 
@@ -18,5 +18,8 @@
 //! ```
 //! 
 
+#![deny(missing_docs)]
+/// Generate fractals and save them as BMP images.
 pub mod fractal;
+/// Generate images and save them as BMP files.
 pub mod image;

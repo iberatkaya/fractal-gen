@@ -1,6 +1,6 @@
 [package]
 name = "fractal-gen"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["berat <beratkaya1998@gmail.com>"]
 edition = "2018"
 description = "Fractals is a Rust project to generate fractals."

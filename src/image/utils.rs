@@ -1,3 +1,4 @@
+/// Transform a u32 Array to 4 u8 Arrays
 pub fn transform_u32_to_array_of_u8(x: u32) -> [u8; 4] {
     let b1 : u8 = ((x >> 24) & 0xff) as u8;
     let b2 : u8 = ((x >> 16) & 0xff) as u8;
@@ -6,6 +7,7 @@ pub fn transform_u32_to_array_of_u8(x: u32) -> [u8; 4] {
     return [b4, b3, b2, b1]
 }
 
+/// Round a float to its nearest integer.
 pub fn round(num: f64) -> u64{
     let point = num - num as i64 as f64;
     if point >= 0.5 {

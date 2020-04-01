@@ -1,5 +1,6 @@
 use super::utils::*;
 
+/// The structure of the image Header.
 pub struct Header {
     file_type: String,
     file_size: u32,
@@ -7,7 +8,9 @@ pub struct Header {
     res2: u8,
     pixel_data_offset: u8,
     header_size: u8,
+    /// The image's width in pixels.
     pub image_width: u32,
+    /// The image's height in pixels.
     pub image_height: u32,
     planes: u8,
     bits_per_pixel: u8,
@@ -20,8 +23,9 @@ pub struct Header {
 }
 
 impl Header {
-    pub fn new(
-        image_width: u32, image_height: u32, image_size: u32) -> Header {
+
+    /// Create a new Header.
+    pub fn new(image_width: u32, image_height: u32, image_size: u32) -> Header {
             Header {
                 file_type: String::from("BM"), file_size: 0, res1: 0, res2: 0,
                 pixel_data_offset: 54,  header_size: 40, image_width: image_width, 
@@ -31,6 +35,7 @@ impl Header {
             }    
         }
 
+    /// Get the binary data of the header.
     pub fn get_binary_data(&self) -> Vec<u8>{
         let mut bdata: Vec<u8> = vec!();
         //File Type

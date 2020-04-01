@@ -6,8 +6,8 @@ use crate::image::{pixel::{Pixel}};
  */
 
 pub(super) fn draw_line(x1: u32, y1: u32, x2: u32, y2: u32, pixels: &mut Vec<Vec<Pixel>>, color: Pixel){
-    let mut dx: f64;
-    let mut dy: f64;
+    let dx: f64;
+    let dy: f64;
     let step: f64;
     let mut x: f64;
     let mut y: f64;

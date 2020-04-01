@@ -5,7 +5,7 @@
 Fractals is a project designed to generate fractals as images without any external dependencies. Checkout the [log](https://github.com/iberatkaya/fractals/blob/master/LOG.md). Currently under development. 
 
 <p align="center">
-    <img alt="Repeating Circles" src="https://raw.githubusercontent.com/iberatkaya/fractals/master/examples/compressed/fractals.jpg" width="750" height="750">
+    <img alt="Repeating Circles" src="https://raw.githubusercontent.com/iberatkaya/fractals/master/examples/compressed/fractals.jpg" width="400" height="400">
 </p>
 
 ## Author

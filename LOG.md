@@ -2,12 +2,12 @@
 
 ## Below is a log of my experience with developing this project. 
 
-## 31.10.2020
+### 31.10.2020
 
 * Implemented The Mandelbrot Set. Some useful links: [The Mandelbrot Set](http://warp.povusers.org/Mandelbrot/), [Mandelbrot Set in C](https://rosettacode.org/wiki/Mandelbrot_set#C).
 * Implemented a image rotating function.
 
-## 30.10.2020: 
+### 30.10.2020: 
 
 * Implemented [Sierpinski's Triangle](https://www.geeksforgeeks.org/sierpinski-triangle-using-graphics/). 
 

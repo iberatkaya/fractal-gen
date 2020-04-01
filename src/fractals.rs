@@ -9,7 +9,8 @@ mod sierpinski_triangle;
 use sierpinski_triangle::{triangle, trianglev2, sierpinski_triangle, multiple_triangles};
 mod mandelbrot;
 use mandelbrot::mandelbrot;
-
+mod tree;
+use tree::tree;
 
 pub struct Fractal {
     pub image: Img
@@ -65,5 +66,8 @@ impl Fractal {
     }
     pub fn rotate(&mut self){
         self.image.rotate();
+    }
+    pub fn tree(&mut self, x: u32, y: u32, h: u32, angle: f64, growth: u32, color: Pixel){
+        tree(x, y, h, angle, growth, &mut self.image.pixels, color);
     }
 }

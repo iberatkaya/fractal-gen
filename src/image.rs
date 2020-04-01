@@ -3,8 +3,8 @@ pub mod pixel;
 pub mod header;
 use header::Header;
 use pixel::Pixel;
-mod utils;
-use utils::{transform_u32_to_array_of_u8};
+pub mod utils;
+use utils::*;
 mod rotate;
 use rotate::rotate;
 

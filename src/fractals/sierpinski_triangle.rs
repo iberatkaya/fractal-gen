@@ -24,6 +24,11 @@ pub fn trianglev2(x: u32, y: u32, h: u32, pixels: &mut Vec<Vec<Pixel>>, color: P
     draw_line(x as u32, (y - 2 * h / 3) as u32, (x as f64 + (h as f64 / 3.0_f64.sqrt())) as u32, (y + h / 3) as u32, pixels, color); 
 } 
 
+/**
+ * Implemented Sierpinski's Triangle.
+ * Checkout at: https://www.geeksforgeeks.org/sierpinski-triangle-using-graphics/
+ */
+
 pub fn sierpinski_triangle(x: f64, y: f64, h: f64, pixels: &mut Vec<Vec<Pixel>>, color: Pixel){
     if h < 5.0 {
         return;

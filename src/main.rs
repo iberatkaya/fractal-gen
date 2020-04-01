@@ -13,6 +13,7 @@ fn main() {
         pixels.push(row);
     }
     let mut image = fractals::Fractal::new(pixels);
-    image.multiple_circles(200, 200, 200, 5, Pixel::new(250, 0, 0));
+    image.mandelbrot(Pixel::new(250, 0, 0));
+    image.rotate();
     image.write_image("./test.bmp");
 }

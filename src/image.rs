@@ -5,6 +5,8 @@ use header::Header;
 use pixel::Pixel;
 mod utils;
 use utils::{transform_u32_to_array_of_u8};
+mod rotate;
+use rotate::rotate;
 
 pub struct Img {
     header: Header,
@@ -45,7 +47,6 @@ impl Img {
         }
         data
     }
-
     pub fn write_image(&self, path: &str){
         if !path.contains(".bmp") {
             panic!("I am not a bmp image!");
@@ -61,7 +62,7 @@ impl Img {
         let bdata = img.get_binary_data();
         data.write(&bdata).unwrap();
     }
+    pub fn rotate(&mut self){
+        self.pixels = rotate(&mut self.pixels);
+    }
 }
-
-
-

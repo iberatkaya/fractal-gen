@@ -7,6 +7,9 @@ mod koch_curve;
 use koch_curve::{koch_curve};
 mod sierpinski_triangle;
 use sierpinski_triangle::{triangle, trianglev2, sierpinski_triangle, multiple_triangles};
+mod mandelbrot;
+use mandelbrot::mandelbrot;
+
 
 pub struct Fractal {
     pub image: Img
@@ -56,5 +59,11 @@ impl Fractal {
     }
     pub fn multiple_triangles(&mut self, x: u32, y: u32, h: u32, number: u32, color: Pixel){
         multiple_triangles(x, y, h, number, &mut self.image.pixels, color);
+    }
+    pub fn mandelbrot(&mut self, color: Pixel){
+        mandelbrot(&mut self.image.pixels, color);
+    }
+    pub fn rotate(&mut self){
+        self.image.rotate();
     }
 }

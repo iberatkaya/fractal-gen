@@ -1,2 +1,2 @@
-pub mod fractals;
+pub mod fractal;
 pub mod image;

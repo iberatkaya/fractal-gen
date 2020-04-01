@@ -7,7 +7,7 @@ description = "Fractals is a Rust project to generate fractals."
 readme = "README.md"
 repository = "https://github.com/rust-lang/cargo/"
 license = "MIT"
-keywords = ["fractal", "generator", "image", "bmp", "pattern", "shape"]
+keywords = ["fractal", "generator", "image", "pattern", "shape"]
 categories = ["multimedia::images", "algorithms"]
 
 [dependencies]

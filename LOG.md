@@ -2,7 +2,7 @@
 
 ## Below is a log of my experience with developing this project. 
 
-### 01.03.2020:
+### 01.04.2020:
 
 * Added a tree fractals inspired from [Nature of Code](https://natureofcode.com/book/chapter-8-fractals/).
 

@@ -11,7 +11,9 @@ mod mandelbrot;
 use mandelbrot::mandelbrot;
 mod tree;
 use tree::tree;
- 
+mod barnsley_fern;
+use barnsley_fern::barnsley_fern; 
+
 /// The structure of the Fractal.
 pub struct Fractal {
     /// The fractals image data.
@@ -109,5 +111,9 @@ impl Fractal {
     /// Generate a tree by giving its coordinates, height, angle, growth, and color.
     pub fn tree(&mut self, x: u32, y: u32, h: u32, angle: f64, growth: u32, color: Pixel){
         tree(x, y, h, angle, growth, &mut self.image.pixels, color);
+    }
+
+    pub fn barnsley_fern(&mut self, x: i32, y: u32, iterations: u32, color: Pixel){
+        barnsley_fern(x as i32 - self.image.pixels.len() as i32, y, iterations, &mut self.image.pixels, color);
     }
 }

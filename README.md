@@ -1,11 +1,24 @@
 # Fractal Gen
 
+[![Crate](https://img.shields.io/crates/v/fractal-gen.svg)](https://crates.io/crates/fractal-gen) [![API](https://docs.rs/fractal-gen/badge.svg)](https://docs.rs/fractal-gen)
+
 > Fractal Gen is a Rust project to generate fractals.
 
-Fractals is a project designed to generate fractals as images without any external dependencies. Checkout the [log](https://github.com/iberatkaya/fractals/blob/master/LOG.md). Currently under development. 
+Fractals is a [Crate](https://crates.io/crates/fractal-gen) that generate fractals as images without any external dependencies. The images are saved as a BMP files. Checkout the [log](https://github.com/iberatkaya/fractals/blob/master/LOG.md) and [documentation](https://docs.rs/fractal-gen/).
+
+### Some Fractals:
+
+* Mandelbrot Set
+* Julia Set
+* Koch Curve
+* Sierpinski Triangle
+* Barnsley Fern
+* Tree
+
+
 
 <p align="center">
-    <img alt="Repeating Circles" src="https://raw.githubusercontent.com/iberatkaya/fractals/master/examples/compressed/fractals.jpg" width="400" height="400">
+    <img alt="Logo" src="https://raw.githubusercontent.com/iberatkaya/fractals/master/examples/compressed/fractals.jpg" width="400" height="400">
 </p>
 
 ```rust
@@ -14,21 +27,31 @@ use fractal_gen::{image::pixel::Pixel, fractal::Fractal};
 
 
 fn main() {
+    // The pixel array
     let mut pixels = vec![];    
 
+    // Height = 1000px
     for _i in 0..1000 {
         let mut row = vec![];
+        // Width = 1000px
         for _j in 0..1000 {
             row.push(Pixel::new(255, 255, 255));
         }
         pixels.push(row);
     }
+    // Create a Fractal from the pixels.
     let mut image = Fractal::new(pixels);
+
+    // Draw the Mandelbrot Set on the image.
     image.mandelbrot(Pixel::new(250, 0, 0));
+
+    // Draw a Sierpinksi Triangle on the image.
     image.sierpinski_triangle(180, 180, 100, Pixel::new(0, 0, 250));
+    
+    // Draw a Koch Curve on the image.
     image.koch_curve(675, 75, 925, 325, 5, Pixel::new(0, 250, 0));
-    image.multiple_triangles(175, 800, 220, 6, Pixel::new(250, 0, 250));
-    image.multiple_circles(825, 825, 125, 6, Pixel::new(0, 150, 150));
+
+    // Write the BMP image.
     image.write_image("./test.bmp");
 }
 

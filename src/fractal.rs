@@ -19,7 +19,7 @@ use julia::{julia, julia_colored};
 
 /// The structure of the Fractal.
 pub struct Fractal {
-    /// The fractals image data.
+    /// The fractal's image data.
     pub image: Img
 }
 

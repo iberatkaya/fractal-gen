@@ -16,7 +16,7 @@ pub fn barnsley_fern(x: i32, y: u32, iterations: u32, pixels: &mut Vec<Vec<Pixel
     let mut x1: f64;
     let mut y1: f64;
     let width = pixels[0].len();
-    for j in 0..iterations {
+    for _j in 0..iterations {
         // Use as a random number
         let time = SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_nanos();
         let num = (time) % 101;

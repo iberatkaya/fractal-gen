@@ -2,9 +2,16 @@
 
 ## Below is a log of my experience with developing this project. 
 
+### 02.04.2020:
+
+* Implemented [Julia Set](https://rosettacode.org/wiki/Julia_set).
+
 ### 01.04.2020:
 
 * Added a tree fractal inspired from [Nature of Code](https://natureofcode.com/book/chapter-8-fractals/).
+* Publish the [Crate](https://crates.io/crates/fractal-gen) to Cargo.
+* Added documentation to funtions.
+* Implemented [Barnsley Fern](https://rosettacode.org/wiki/Barnsley_fern).
 
 ### 31.03.2020:
 

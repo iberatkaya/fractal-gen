@@ -1,8 +1,8 @@
 use crate::image::{Img, pixel::{Pixel}};
 
 /**
- *  Implemented Bresenham’s circle drawing algorithm.
- *  For more details: https://www.geeksforgeeks.org/bresenhams-circle-drawing-algorithm/
+ * Implemented Bresenham’s circle drawing algorithm.
+ * For more details: https://www.geeksforgeeks.org/bresenhams-circle-drawing-algorithm/
  */
 
 pub(super) fn circle(xc: usize, yc: usize, radius: u32, image: &mut Img, color: Pixel){

@@ -61,6 +61,13 @@ impl Img {
 
 
     /// Write the image into a file.
+    /// 
+    /// # Example
+    /// 
+    /// ```
+    /// let image = image::Img::new(pixels);
+    /// image.write_image("./myimage.bmp");
+    /// ```
     pub fn write_image(&self, path: &str){
         if !path.contains(".bmp") {
             panic!("I am not a bmp image!");

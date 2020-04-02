@@ -1,6 +1,15 @@
 use crate::image::{pixel::{Pixel}};
 use std::time::{SystemTime, UNIX_EPOCH};
 
+/**
+ * Implemented The Barnsley Fern.
+ * Checkout at: https://rosettacode.org/wiki/Barnsley_fern
+ * 
+ * Since the project was designed to have 0 dependencies, 
+ * and Rust does not have a built in random number generator,
+ * I implemented a randum number generator based on the systen time.
+ **/
+
 pub fn barnsley_fern(x: i32, y: u32, iterations: u32, pixels: &mut Vec<Vec<Pixel>>, color: Pixel){
     let mut x0: f64 = 0.0;
     let mut y0: f64 = 0.0;

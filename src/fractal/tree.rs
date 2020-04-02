@@ -1,6 +1,11 @@
 use crate::image::{pixel::{Pixel}, utils::round};
 use super::line::draw_line;
 
+/**
+ * Implemented a tree fractal.
+ * Checkout at: https://natureofcode.com/book/chapter-8-fractals/ 
+ **/
+
 pub fn tree(x: u32, y: u32, h: u32, angle: f64, growth: u32, pixels: &mut Vec<Vec<Pixel>>, color: Pixel){
     draw_line(x, y, x + h, y, pixels, color);
     branch(x, y, h, angle, growth, pixels, color);
